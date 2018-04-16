@@ -1,0 +1,30 @@
+{
+  "name": "reactive-cookies",
+  "version": "0.1.0",
+  "description": "Detect Cookies change",
+  "main": "index.js",
+  "repository": "https://github.com/kelin2025/reactive-cookies",
+  "author": "Anton Kosykh <kelin2025@yandex.ru>",
+  "license": "MIT",
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run validate"
+    }
+  },
+  "scripts": {
+    "validate": "npm run lint && npm run size",
+    "lint": "eslint --fix lib/*.js",
+    "size": "size-limit"
+  },
+  "size-limit": [{ "path": "index.js", "limit": "300 B" }],
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "ghooks": "^2.0.2",
+    "size-limit": "^0.14.0"
+  }
+}
