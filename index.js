@@ -1,11 +1,11 @@
 module.exports = function ReactiveCookies(options) {
   options = options || {}
   this.store = document.cookie
-    .split("; ")
-    .map(i => [i.slice(0, i.indexOf("=")), i.slice(i.indexOf("=") + 1)])
-    .reduce((res, cur) => {
-      res[cur[0]] = cur[1]
-      return res
+    .split(';')
+    .map(v => v.split('='))
+    .reduce((acc, v) => {
+      acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim())
+      return acc
     }, {})
   this.listeners = []
   setInterval(this.triggerUpdate, options.interval || 60000)
